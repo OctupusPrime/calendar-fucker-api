@@ -8,7 +8,10 @@ import calendarRouter from './routes/calendar.ts'
 const app = new Application({ serverConstructor: HttpServerStd });
 const port = 8080
 
-app.use(oakCors())
+app.use(oakCors({
+  origin: ['http://localhost:3000/'],
+  credentials: true
+}))
 
 app.use(calendarRouter.routes());
 app.use(calendarRouter.allowedMethods());

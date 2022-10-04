@@ -11,6 +11,6 @@ const layer = new InMemoryLayer();
 
 router
   .all('/ws/:id', mountConsumer(wsServerStatus, layer))
-  .get('/test/:id', (ctx) => calendarController.test(ctx, layer))
+  .get('/test/:id', async (ctx) => await calendarController.test(ctx, layer))
 
 export default router
